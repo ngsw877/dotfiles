@@ -1,4 +1,4 @@
 # Load aliases
-if [ -f ~/.zrc_aliases ]; then
-    . ~/.zrc_aliases
+if [ -f ~/.zsh_aliases ]; then
+    . ~/.zsh_aliases
 fi
