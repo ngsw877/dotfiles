@@ -16,7 +16,32 @@ alias zali="vi ~/.zsh_aliases"
 ###### ツール系 ######
 alias k="kubectl"
 alias ccu="ccusage"
+
+### Terraform ###
 alias tf="terraform"
+
+# tnm (Terraform New Module)
+# Terraformモジュールの雛形ファイル (main.tf, variables.tf, outputs.tf) を生成する
+#
+# Usage:
+#   tnm           → カレントディレクトリに3ファイルを作成
+#   tnm <name>    → カレントディレクトリに <name>/ を作成し、その中に3ファイルを作成
+terraform_new_module() {
+  local module_name="$1"
+  local base_dir="$PWD"
+  local target_dir="$base_dir"
+
+  if [ -n "$module_name" ]; then
+    target_dir="$base_dir/$module_name"
+    mkdir -p "$target_dir"
+  fi
+
+  touch "$target_dir/main.tf" "$target_dir/variables.tf" "$target_dir/outputs.tf"
+  echo "Created Terraform module at: $target_dir"
+}
+
+alias tnm='terraform_new_module'
+
 
 ### AWS ###
 alias p='function _aws_profile() { export AWS_PROFILE="$1"; }; _aws_profile'
