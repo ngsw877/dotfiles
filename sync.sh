@@ -3,8 +3,8 @@
 # dotfiles セットアップスクリプト
 #
 # Usage:
-#   ./setup.sh       → 上書き前に確認を求める
-#   ./setup.sh -f    → 確認なしで強制上書き
+#   ./sync.sh       → 上書き前に確認を求める
+#   ./sync.sh -f    → 確認なしで強制上書き
 
 DOTFILES_DIR="$(cd "$(dirname "$0")" && pwd)"
 FORCE=false
