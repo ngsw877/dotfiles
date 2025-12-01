@@ -19,6 +19,13 @@ alias ccu="ccusage"
 
 ### Terraform ###
 alias tf="terraform"
+alias ta="terraform apply"
+alias td="terraform destroy"
+alias ti="terraform init"
+alias tp="terraform plan"
+alias tpg="terraform plan -generate-config-out=tmp.tf"
+
+alias tui="tftui"
 
 # tnm (Terraform New Module)
 # Terraformモジュールの雛形ファイル (main.tf, variables.tf, outputs.tf) を生成する
