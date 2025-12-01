@@ -31,18 +31,12 @@ alias tui="tftui"
 # Terraformモジュールの雛形ファイル (main.tf, variables.tf, outputs.tf) を生成する
 #
 # Usage:
-#   tnm           → カレントディレクトリに3ファイルを作成
-#   tnm <name>    → カレントディレクトリに <name>/ を作成し、その中に3ファイルを作成
+#   tnm              → カレントディレクトリに3ファイルを作成
+#   tnm <path>       → 指定したパスに3ファイルを作成（ディレクトリがなければ作成）
 terraform_new_module() {
-  local module_name="$1"
-  local base_dir="$PWD"
-  local target_dir="$base_dir"
+  local target_dir="${1:-.}"
 
-  if [ -n "$module_name" ]; then
-    target_dir="$base_dir/$module_name"
-    mkdir -p "$target_dir"
-  fi
-
+  mkdir -p "$target_dir"
   touch "$target_dir/main.tf" "$target_dir/variables.tf" "$target_dir/outputs.tf"
   echo "Created Terraform module at: $target_dir"
 }
